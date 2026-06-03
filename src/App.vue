@@ -1,22 +1,14 @@
 <script setup>
 import avatar from './assets/ganza.jpeg'
-import project1 from './assets/download (17).jpg'
 import project2 from './assets/Simplify Your Shopify Store in 2025 — One-Page Design That Converts.jpg'
 import project3 from './assets/What Is the Best Laptop for Multitasking in 2025.jpg'
+
 const projects = [
-    {
-      title: 'Design system for product launch',
-      description: 'Built a polished interface with Vue 3, animations, and responsive UI patterns for a modern brand.',
-      tag: 'UI / UX',
-      link: 'http://ganza-khalid.netlify.app',
-      linkLabel: 'View project',
-      image: project1,
-    },
   {
     title: 'E-commerce performance refresh',
     description: 'Improved load time and conversion with optimized assets, accessibility updates, and seamless navigation.',
     tag: 'Performance',
-    link: 'http://ganza-khalid.netlify.app',
+    link: 'https://ganza-khalid.netlify.app',
     linkLabel: 'View project',
     image: project2,
   },
@@ -24,7 +16,7 @@ const projects = [
     title: 'Best 14-inch laptops 2026',
     description: 'Curated review for productivity, portability, and long battery life.',
     tag: 'Hardware Review',
-    link: 'http://ganza-khalid.netlify.app',
+    link: 'https://vue-app-2.netlify.app', // <-- Linked to your new Netlify app here
     linkLabel: 'Read review',
     image: project3,
   },
@@ -86,7 +78,7 @@ onMounted(() => {
           <h3 class="profile-name"> GANZA AL-KHALID </h3>
           <p class="profile-role">Fullstack Web Developer</p>
           <p class="profile-location">Kigali, Rwanda</p> 
-          <a class="button button-primary" href="#contact">Let's Talk →</a>
+          <a class="button button-primary" href="https://ganza-khalid.netlify.app" target="_blank" rel="noopener noreferrer">Let's Talk →</a>
         </div>
 
         <div class="hero-copy">
@@ -109,7 +101,7 @@ onMounted(() => {
           </div>
 
           <div class="hero-actions">
-            <a class="button button-primary" href="#contact">Let's Talk</a>
+            <a class="button button-primary" href="https://ganza-khalid.netlify.app" target="_blank" rel="noopener noreferrer">Let's Talk</a>
             <a class="hero-link" href="#projects">My Work →</a>
           </div>
         </div>
@@ -154,7 +146,6 @@ onMounted(() => {
           <article class="case-card" v-for="c in caseStudies" :key="c.id">
             <h3>{{ c.title }}</h3>
             <p>{{ c.summary }}</p>
-            <a :href="`#${c.id}`" class="case-link">Read case study</a>
           </article>
         </div>
       </section>
@@ -190,10 +181,9 @@ onMounted(() => {
       <section class="section contact" id="contact">
         <div class="section-header">
           <span class="section-tag">Contact</span>
-          <h2>Let’s work together</h2>
+          <h2>Let`s work together</h2>
         </div>
-        <p>Want a stronger online presence? Send a message, and I’ll help shape your next digital project.</p>
-        <a class="button button-primary" href="mailto:ganzaalkhalid@gmail.com">ganzaalkhalid@gmail.com</a>
+        <a class="button button-primary" href="https://ganza-khalid.netlify.app" target="_blank" rel="noopener noreferrer">Visit ganza-khalid.netlify.app</a>
       </section>
       
     </main>

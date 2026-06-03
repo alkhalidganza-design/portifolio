@@ -526,3 +526,30 @@ h1 {
     width: 100%;
   }
 }
+/* Base styling for your skill chips */
+.skill-chip {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #ffffff;
+  color: #1e293b; /* Dark slate text */
+  border: 1px solid #e2e8f0; /* Light gray border */
+  border-radius: 12px;
+  font-weight: 500;
+  font-size: 0.875rem;
+  cursor: default;
+  
+  /* Crucial: Smooth out all property transitions over 300ms */
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, box-shadow;
+}
+
+/* Elegant micro-interaction state on hover */
+.skill-chip:hover {
+  transform: translateY(-4px); /* Lifts the card slightly upwards */
+  background-color: #000000; /* Dark premium background change */
+  color: #ffffff; /* High contrast text inversion */
+  border-color: #000000;
+  
+  /* Casts a clean, modern drop shadow */
+  box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.15); 
+}
