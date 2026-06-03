@@ -30,7 +30,7 @@ const highlights = [
 ]
 
 const testimonials = [
-  { name: 'Igiraneza Patrick', role: 'Product Manager', quote: 'Delivered a clean, accessible interface on time — increased engagement by 32%.' },
+  { name: 'Igiraneza Patrick', role: 'Product Manager', quote: 'Delivered a clean, accessible interface on time — increased engagement .' },
   { name: 'Jonas M.', role: 'Founder', quote: 'Excellent communication and fast iteration; projects shipped with confidence.' },
   { name: 'Sarah T.', role: 'Design Lead', quote: 'Transformed our design system into production-ready components. Highly professional and detail-oriented.' },
   { name: 'Michael R.', role: 'Tech Director', quote: 'Built a performant web app that exceeded expectations. Great problem-solving skills and attention to detail.' },
@@ -43,9 +43,9 @@ const caseStudies = [
   { id: 'mobile-redesign', title: 'Mobile app redesign', summary: 'Modernized legacy mobile experience with improved navigation and user flows.' },
   { id: 'api-integration', title: 'Real-time API integration', summary: 'Built WebSocket-based features for live updates and real-time collaboration.' },
   { id: 'dark-mode', title: 'Dark mode implementation', summary: 'System-wide dark theme with theme persistence and accessibility compliance.' },
-  { id: 'performance-audit', title: 'Core web vitals optimization', summary: 'Reduced LCP by 45%, CLS by 60%, and improved SEO rankings by 38%.' },
+  { id: 'performance-audit', title: 'Core web vitals optimization', summary: 'Reduced LCP , CLS , and improved SEO rankings  .' },
   { id: 'accessibility-refactor', title: 'WCAG 2.1 AA compliance', summary: 'Full accessibility audit, keyboard navigation, screen reader optimization.' },
-  { id: 'animation-library', title: 'Micro-interaction library', summary: 'Built reusable animation system with Framer Motion, improving UX by 28%.' },
+  { id: 'animation-library', title: 'Micro-interaction library', summary: 'Built reusable animation system with Framer Motion, improving UX  .' },
 ]
 
 import { onMounted } from 'vue'
