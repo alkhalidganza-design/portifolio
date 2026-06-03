@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import avatar from './assets/ganza.jpeg'
 import project2 from './assets/Simplify Your Shopify Store in 2025 — One-Page Design That Converts.jpg'
 import project3 from './assets/What Is the Best Laptop for Multitasking in 2025.jpg'
@@ -30,31 +30,22 @@ const highlights = [
   { value: '2 years', label: 'focused frontend work' },
 ]
 
-const testimonials = [
-  { name: 'Igiraneza Patrick', role: 'Product Manager', quote: 'Delivered a clean, accessible interface on time — increased engagement by 32%.' },
-  { name: 'Jonas M.', role: 'Founder', quote: 'Excellent communication and fast iteration; projects shipped with confidence.' },
-  { name: 'Sarah T.', role: 'Design Lead', quote: 'Transformed our design system into production-ready components. Highly professional and detail-oriented.' },
-  { name: 'Michael R.', role: 'Tech Director', quote: 'Built a performant web app that exceeded expectations. Great problem-solving skills and attention to detail.' },
-  { name: 'Leila P.', role: 'CEO', quote: 'Outstanding work on our platform redesign. The result was beautiful, functional, and user-focused. Highly recommended.' },
-]
-
-const caseStudies = [
-  { id: 'design-system', title: 'Design system for product launch', summary: 'Design system + component library, accessibility, and documentation.' },
-  { id: 'ecommerce-refresh', title: 'E-commerce performance refresh', summary: 'Asset optimizations and code-splitting to improve TTFB and LCP.' },
-  { id: 'mobile-redesign', title: 'Mobile app redesign', summary: 'Modernized legacy mobile experience with improved navigation and user flows.' },
-  { id: 'api-integration', title: 'Real-time API integration', summary: 'Built WebSocket-based features for live updates and real-time collaboration.' },
-  { id: 'dark-mode', title: 'Dark mode implementation', summary: 'System-wide dark theme with theme persistence and accessibility compliance.' },
-  { id: 'performance-audit', title: 'Core web vitals optimization', summary: 'Reduced LCP by 45%, CLS by 60%, and improved SEO rankings by 38%.' },
-  { id: 'accessibility-refactor', title: 'WCAG 2.1 AA compliance', summary: 'Full accessibility audit, keyboard navigation, screen reader optimization.' },
-  { id: 'animation-library', title: 'Micro-interaction library', summary: 'Built reusable animation system with Framer Motion, improving UX by 28%.' },
-]
-
-// Social handles profiles mapping dataset (Update your specific URLs here)
+// Social handles profiles mapping dataset
 const socials = {
   github: 'https://github.com', 
   linkedin: 'https://linkedin.com',
   instagram: 'https://instagram.com'
 }
+
+// Client Attractor: Interactive Calculator Logic
+const monthlyTraffic = ref(10000)
+const estimatedAOV = 50 // Average Order Value baseline ($50)
+
+const revenueGain = computed(() => {
+  // Simulating an optimization lift of an extra 1.2% conversion rate
+  const additionalConversions = Math.round(monthlyTraffic.value * 0.012)
+  return additionalConversions * estimatedAOV
+})
 
 // Contact Form Reactive Model Variables
 const nameField = ref('')
@@ -92,7 +83,7 @@ onMounted(() => {
         <a href="#" class="nav-brand">GANZA.DEV</a>
         <nav class="nav-links">
           <a href="#about">About</a>
-          <a href="#case-studies">Case Studies</a>
+          <a href="#roi-estimator">ROI Calculator</a>
           <a href="#skills">Skills</a>
           <a href="#projects">Work</a>
           <a href="#contact">Contact</a>
@@ -176,29 +167,31 @@ onMounted(() => {
         </div>
       </section>
 
-      <section class="section testimonials" id="testimonials">
+      <section class="section roi-estimator" id="roi-estimator">
         <div class="section-header">
-          <span class="section-tag">Testimonials</span>
-          <h2>Kind words from collaborators</h2>
+          <span class="section-tag">Value Generator</span>
+          <h2>See what bad performance is costing you</h2>
         </div>
-        <div class="testimonial-grid">
-          <article class="testimonial" v-for="t in testimonials" :key="t.name">
-            <p class="quote">“{{ t.quote }}”</p>
-            <p class="who">— {{ t.name }}, <span class="who-role">{{ t.role }}</span></p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section case-studies" id="case-studies">
-        <div class="section-header">
-          <span class="section-tag">Case studies</span>
-          <h2>Project deep dives</h2>
-        </div>
-        <div class="case-grid">
-          <article class="case-card" v-for="c in caseStudies" :key="c.id">
-            <h3>{{ c.title }}</h3>
-            <p>{{ c.summary }}</p>
-          </article>
+        <div class="estimator-container">
+          <div class="estimator-controls">
+            <label for="traffic-slider">Your Current Monthly Traffic: <strong>{{ monthlyTraffic.toLocaleString() }} visitors</strong></label>
+            <input 
+              id="traffic-slider" 
+              type="range" 
+              min="2000" 
+              max="100000" 
+              step="1000" 
+              v-model.number="monthlyTraffic" 
+              class="slider-element"
+            />
+            <p class="estimator-hint">Drag the slider to match your estimated monthly traffic metrics.</p>
+          </div>
+          <div class="estimator-result-card">
+            <span class="result-label">Estimated Monthly Revenue Increase</span>
+            <h3 class="result-value">+${{ revenueGain.toLocaleString() }}/mo</h3>
+            <p class="result-description">By optimizing Core Web Vitals, page speed metrics, and fixing conversion drop-offs, we can typically reclaim this hidden value.</p>
+            <a href="#contact" class="button button-primary estimator-btn">Secure Your Growth Audit</a>
+          </div>
         </div>
       </section>
 
